@@ -1,50 +1,81 @@
-*{
-    padding: 0px;
-    margin: 0px;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-body,html{
+html, body {
   height: 100vh;
   width: 100vw;
- 
-}
-body{
-     background-color:bisque;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-   
-
-}
-img {
-  transition: opacity 0.5s;
-  opacity: 0;
 }
 
-/* Container ka style */
+body {
+  background: linear-gradient(145deg, #747171, #555879);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Container */
 #imageContainer {
   position: relative;
   width: 100vw;
   height: 100vh;
-  border: 2px dashed #aaa;
-  background: #f9f9f9;
   overflow: hidden;
 }
 
-/* Button style */
+/* Button */
 #generateBtn {
-    background-color: antiquewhite;
-    border-radius: 10%;
   position: absolute;
-  top: 20px;
-  left: 20px;
-  padding: 10px 15px;
-  font-size: 16px;
+  top: 250px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 45px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(45deg, #1d1d1de8,#0b0b0bc0,#171717, #878988, #b8bab9);
+  border: none;
+  border-radius: 50px;
   cursor: pointer;
-  margin-left: 45%;
-  margin-top: 25%;
-  z-index: 999999;
+  z-index: 999;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  
+#generateBtn:active{
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+  
+}
 
+#generateBtn:hover {
+  transform: translateX(-50%) scale(1.1);
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
 
+/* Image animation */
+img {
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  opacity: 0;
+  transform: scale(0.3) rotate(0deg);
+  animation: crazyEntry 1s forwards;
+}
+
+@keyframes crazyEntry {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2) rotate(180deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(360deg);
+  }
 }
